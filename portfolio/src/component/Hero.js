@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
-import image from '../image.jpg';
+import image from '../assets/image.jpg';
 import resume from '../public/Milan-Resume.pdf'
 
 const roles = [

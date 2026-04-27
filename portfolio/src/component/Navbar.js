@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Download } from "lucide-react";
+import resume from '../public/Milan-Resume.pdf'
 
 export default function Navbar({ refs }) {
   const [open, setOpen] = useState(false);
@@ -138,9 +140,14 @@ export default function Navbar({ refs }) {
           </ul>
 
           {/* Resume */}
-          <button className="hidden md:block px-3 text-sm py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold hover:scale-105 transition">
-            Hire me!
-          </button>
+          <a
+            href={resume}
+            download={resume}
+          >
+            <button className="px-3 cursor-pointer py-2 text-sm rounded-full bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition flex items-center gap-2">
+              Resume <Download size={18} />
+            </button>
+          </a>
 
           {/* Mobile Menu */}
           <button

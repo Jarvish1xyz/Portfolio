@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code2, ArrowUpRight, } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import backendmom from "../assets/backend-mom.jpeg";
+import bhagavadgita from "../assets/bhagavad-gita.jpeg";
+import oldportfolio from "../assets/old-portfolio.jpeg";
 
 
 export default function Projects({ sectionRef }) {
@@ -41,8 +44,7 @@ export default function Projects({ sectionRef }) {
     const projects = [
         {
             name: "Meeting Management",
-            image:
-                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200",
+            image: backendmom,
             category: "Full-Stack",
             desc: "Modern Meeting management system with responsive layout and premium UI.",
             tech: ["React.js", "Tailwind CSS", "Express", "MongDB"],
@@ -52,8 +54,7 @@ export default function Projects({ sectionRef }) {
         },
         {
             name: "Bhagavad Gita",
-            image:
-                "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200",
+            image: bhagavadgita,
             category: "Frontend Project",
             desc: "A website where you can read whole Bhagavad Gita at any time.",
             tech: ["React.js", "CSS", "Bootstrap", "JavaScript"],
@@ -62,8 +63,7 @@ export default function Projects({ sectionRef }) {
         },
         {
             name: "Portfolio Website",
-            image:
-                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200",
+            image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200",
             category: "Frontend",
             desc: "Modern glassmorphism portfolio built with smooth animations, responsive layout and premium UI.",
             tech: ["React.js", "Tailwind CSS", "Framer Motion"],
@@ -72,8 +72,7 @@ export default function Projects({ sectionRef }) {
         },
         {
             name: "Old Portfolio Website",
-            image:
-                "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1200",
+            image: oldportfolio,
             category: "UI Design",
             desc: "Simple portfolio website",
             tech: ["Html", "CSS", "Javascript"],
