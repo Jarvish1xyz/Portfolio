@@ -20,15 +20,28 @@ export default function Navbar({ refs }) {
 
   /* Scroll To Section */
   const scrollToSection = (ref, key) => {
-    if (ref?.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (!ref?.current) return;
 
-      setActive(key);
-      setOpen(false);
-    }
+    // FIRST close menu
+    setOpen(false);
+    setActive(key);
+
+    const isMobile = window.innerWidth < 768;
+
+    // wait for mobile menu closing animation
+    setTimeout(() => {
+      const yOffset = -90;
+
+      const y =
+        ref.current.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }, isMobile ? 320 : 0); // must match menu animation speed
   };
 
   /* Active Link on Scroll */
@@ -71,8 +84,8 @@ export default function Navbar({ refs }) {
     >
       <div
         className={`max-w-7xl mx-auto rounded-2xl border border-white/10 backdrop-blur-2xl transition-all duration-300 ${scrolled
-            ? "bg-black/70 py-2 px-5 shadow-[0_8px_25px_rgba(0,0,0,0.35)]"
-            : "bg-white/5 py-3   px-6"
+          ? "bg-black/70 py-2 px-5 shadow-[0_8px_25px_rgba(0,0,0,0.35)]"
+          : "bg-white/5 py-3   px-6"
           }`}
       >
         <div className="flex items-center justify-between">
@@ -99,8 +112,8 @@ export default function Navbar({ refs }) {
                     scrollToSection(item.ref, item.key)
                   }
                   className={`relative cursor-pointer px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${active === item.key
-                      ? "text-black"
-                      : "text-white/65 hover:text-white"
+                    ? "text-black"
+                    : "text-white/65 hover:text-white"
                     }`}
                 >
                   {/* Background changes with active section */}
@@ -125,7 +138,7 @@ export default function Navbar({ refs }) {
           </ul>
 
           {/* Resume */}
-          <button className="hidden md:block px-5 text-sm py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold hover:scale-105 transition">
+          <button className="hidden md:block px-3 text-sm py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold hover:scale-105 transition">
             Hire me!
           </button>
 
@@ -156,8 +169,8 @@ export default function Navbar({ refs }) {
                       scrollToSection(item.ref, item.key)
                     }
                     className={`text-left px-4 py-3 rounded-2xl transition ${active === item.key
-                        ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold"
-                        : "bg-white/5 text-white/70"
+                      ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold"
+                      : "bg-white/5 text-white/70"
                       }`}
                   >
                     {item.name}

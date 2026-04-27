@@ -21,36 +21,38 @@ export default function App() {
       <div className="absolute top-20 left-0 w-44 md:w-72 h-44 md:h-72 bg-blue-500/30 blur-[80px] rounded-full" />
       <div className="absolute top-[35%] right-0 w-44 md:w-72 h-44 md:h-72 bg-purple-500/30 blur-[80px] rounded-full" />
       <div className="absolute bottom-20 left-10 w-44 md:w-72 h-44 md:h-72 bg-cyan-500/30 blur-[80px] rounded-full" />
-      
-      
+
+
       {/* Navbar */}
-      <Navbar refs={{
-        homeRef,
-        aboutRef,
-        projectsRef,
-        skillsRef,
-        contactRef,
-      }} />
+      <section>
+        <Navbar refs={{
+          homeRef,
+          aboutRef,
+          projectsRef,
+          skillsRef,
+          contactRef,
+        }} />
+      </section>
 
       {/* Hero Section */}
       <section ref={homeRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Hero />
+        <Hero sectionRef={homeRef} />
       </section>
 
       <section ref={aboutRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <About />
+        <About sectionRef={aboutRef} />
       </section>
 
-      <section ref={projectsRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Projects />
+      <section ref={projectsRef} className="min-h-screen z-15 flex items-center justify-center px-6 md:px-16 relative z-15">
+        <Projects sectionRef={projectsRef} />
       </section>
 
       <section ref={skillsRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Skills />
+        <Skills sectionRef={skillsRef} />
       </section>
 
       <section ref={contactRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Contact />
+        <Contact sectionRef={contactRef} />
       </section>
 
     </div>

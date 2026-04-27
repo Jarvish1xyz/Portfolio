@@ -9,7 +9,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-export default function About() {
+export default function About({ sectionRef }) {
   const stats = [
     {
       icon: <FolderGit2 size={26} />,
@@ -36,18 +36,19 @@ export default function About() {
   const timeline = [
     "Started with HTML, CSS & simple websites.",
     "Moved into JavaScript and responsive UI building.",
-    "Now building React projects Backend in Express with premium interfaces.",
-    "Currently learning Linux & cybersecurity.",
+    "Now building React projects and Backend in Express with premium interfaces.",
+    "Currently learning Linux & Cybersecurity.",
   ];
 
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-5 right-110 w-72 h-72 bg-blue-500/20 blur-[150px] rounded-full"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <motion.div

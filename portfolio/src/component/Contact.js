@@ -9,7 +9,7 @@ import {
 import emailjs from "@emailjs/browser";
 
 
-export default function Contact() {
+export default function Contact({ sectionRef }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -77,6 +77,7 @@ export default function Contact() {
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
     >

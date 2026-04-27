@@ -9,7 +9,7 @@ import {
     Sparkles,
 } from "lucide-react";
 
-export default function Skills() {
+export default function Skills({ sectionRef }) {
     const techStack = [
         {
             title: "Frontend",
@@ -79,8 +79,9 @@ export default function Skills() {
 
     return (
         <section
+            ref={sectionRef}
             id="skills"
-            className="min-h-screen bg-[#050505] text-white px-6 md:px-16 py-24 relative overflow-hidden"
+            className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
         >
             {/* Background Glow */}
             <div className="absolute top-5 right-110 w-72 h-72 bg-blue-500/20 blur-[150px] rounded-full"></div>
@@ -112,7 +113,7 @@ export default function Skills() {
                 </motion.div>
 
                 {/* Bento Layout */}
-                <div className="grid grid-cols-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 auto-rows-[220px] gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-5 md:gap-6 auto-rows-auto md:auto-rows-[220px]">
 
                     {/* Big Main Card */}
                     <motion.div
@@ -120,7 +121,7 @@ export default function Skills() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="md:col-span-3 md:row-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-8"
+                        className="md:col-span-3 md:row-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-8 h-auto"
                     >
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-400 text-black flex items-center justify-center">
@@ -176,7 +177,7 @@ export default function Skills() {
                                 delay: index * 0.08,
                             }}
                             viewport={{ once: true }}
-                            className="md:col-span-3 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-6 hover:scale-[1.02] transition"
+                            className="md:col-span-3 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6 h-auto hover:scale-[1.02] transition"
                         >
                             <div className="flex items-center gap-3 mb-5">
                                 <div
@@ -190,11 +191,11 @@ export default function Skills() {
                                 </h3>
                             </div>
 
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-2 mt-3">
                                 {item.tech.map((skill, i) => (
                                     <span
                                         key={i}
-                                        className="px-4 py-2 rounded-full bg-white/10 text-sm md:text-base text-white/80 hover:bg-white/15 transition"
+                                        className="px-3 py-2 rounded-full bg-white/10 text-sm md:text-base text-white/80 hover:bg-white/15 transition"
                                     >
                                         {skill}
                                     </span>
@@ -209,7 +210,7 @@ export default function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="md:col-span-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-6"
+                        className="md:col-span-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6"
                     >
                         <div className="flex items-center gap-3 mb-5">
                             <Sparkles className="text-cyan-300" />
@@ -218,11 +219,11 @@ export default function Skills() {
                             </h3>
                         </div>
 
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2 md:gap-3">
                             {strengths.map((item, index) => (
                                 <span
                                     key={index}
-                                    className="px-5 py-2 rounded-full bg-gradient-to-r from-white/10 to-white/5 border border-white/10 text-white/80 hover:scale-105 transition"
+                                    className="px-4 py-2 text-sm rounded-full bg-gradient-to-r from-white/10 to-white/5 border border-white/10 text-white/80 hover:scale-105 transition"
                                 >
                                     {item}
                                 </span>

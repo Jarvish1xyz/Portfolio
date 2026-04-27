@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code2, ArrowUpRight, } from "lucide-react";
-import { FaGithub} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 
-export default function Projects() {
+export default function Projects({ sectionRef }) {
     const [selectedProject, setSelectedProject] = useState(null);
 
     /* 🔥 LOCK BODY SCROLL WHEN POPUP OPENS */
@@ -21,6 +21,20 @@ export default function Projects() {
         return () => {
             document.body.style.overflow = "auto";
             document.body.style.paddingRight = "0px";
+        };
+    }, [selectedProject]);
+
+    useEffect(() => {
+        const handleEsc = (e) => {
+            if (e.key === "Escape" && selectedProject) {
+                setSelectedProject(null);
+            }
+        };
+
+        window.addEventListener("keydown", handleEsc);
+
+        return () => {
+            window.removeEventListener("keydown", handleEsc);
         };
     }, [selectedProject]);
 
@@ -69,104 +83,108 @@ export default function Projects() {
     ];
 
     return (
-        <section
-            id="projects"
-            className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
-        >
-            {/* Background Glow */}
-            <div className="absolute top-5 right-110 w-72 h-72 bg-blue-500/20 blur-[150px] rounded-full"></div>
+        <>
+            <section
+                ref={sectionRef}
+                id="projects"
+                className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-visible"
+            >
+                {/* Background Glow */}
+                <div className="absolute top-5 right-110 w-72 h-72 bg-blue-500/20 blur-[150px] rounded-full"></div>
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                {/* Heading */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <p className="text-blue-400 tracking-[4px] uppercase text-sm mb-3">
-                        My Work
-                    </p>
-
-                    <h2 className="text-4xl md:text-6xl font-bold">
-                        Featured{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                            Projects
-                        </span>
-                    </h2>
-
-                    <p className="text-white/50 mt-5 max-w-2xl mx-auto">
-                        Some projects where I transformed ideas into polished digital
-                        experiences.
-                    </p>
-                </motion.div>
-
-                {/* Bento Grid */}
-                <div className="grid grid-cols-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[220px] md:auto-rows-[250px] gap-6">
-                    {/* Featured Big Card */}
+                <div className="max-w-7xl mx-auto relative z-10">
+                    {/* Heading */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6 }}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
                         viewport={{ once: true }}
-                        onClick={() => setSelectedProject(projects[0])}
-                        className="sm:col-span-2 md:col-span-2 md:row-span-2 group cursor-pointer rounded-3xl overflow-hidden relative border border-white/10 bg-white/5 backdrop-blur-xl"
+                        className="text-center mb-16"
                     >
-                        <img
-                            src={projects[0].image}
-                            alt=""
-                            className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
-                        />
+                        <p className="text-blue-400 tracking-[4px] uppercase text-sm mb-3">
+                            My Work
+                        </p>
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 flex flex-col justify-end">
-                            <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs w-fit mb-4">
-                                Featured
+                        <h2 className="text-4xl md:text-6xl font-bold">
+                            Featured{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                                Projects
                             </span>
+                        </h2>
 
-                            <h3 className="text-3xl font-bold">{projects[0].name}</h3>
-                            <p className="text-white/60 mt-2">{projects[0].category}</p>
-                        </div>
+                        <p className="text-white/50 mt-5 max-w-2xl mx-auto">
+                            Some projects where I transformed ideas into polished digital
+                            experiences.
+                        </p>
                     </motion.div>
 
-                    {/* Other Cards */}
-                    {projects.slice(1).map((project, index) => (
+                    {/* Bento Grid */}
+                    <div className="grid grid-cols-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[220px] md:auto-rows-[250px] gap-6">
+                        {/* Featured Big Card */}
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-                            onClick={() => setSelectedProject(project)}
-                            className="group cursor-pointer rounded-3xl overflow-hidden relative border border-white/10 bg-white/5 backdrop-blur-xl"
+                            onClick={() => setSelectedProject(projects[0])}
+                            className="sm:col-span-2 md:col-span-2 md:row-span-2 group cursor-pointer rounded-3xl overflow-hidden relative border border-white/10 bg-white/5 backdrop-blur-xl"
                         >
                             <img
-                                src={project.image}
+                                src={projects[0].image}
                                 alt=""
                                 className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                             />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-5 flex items-end">
-                                <div>
-                                    <h3 className="text-xl font-semibold">{project.name}</h3>
-                                    <p className="text-white/50 text-sm mt-1">
-                                        {project.category}
-                                    </p>
-                                </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                                <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs w-fit mb-4">
+                                    Featured
+                                </span>
+
+                                <h3 className="text-3xl font-bold">{projects[0].name}</h3>
+                                <p className="text-white/60 mt-2">{projects[0].category}</p>
                             </div>
                         </motion.div>
-                    ))}
-                </div>
-            </div>
 
+                        {/* Other Cards */}
+                        {projects.slice(1).map((project, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                onClick={() => setSelectedProject(project)}
+                                className="group cursor-pointer rounded-3xl overflow-hidden relative border border-white/10 bg-white/5 backdrop-blur-xl"
+                            >
+                                <img
+                                    src={project.image}
+                                    alt=""
+                                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                                />
+
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-5 flex items-end">
+                                    <div>
+                                        <h3 className="text-xl font-semibold">{project.name}</h3>
+                                        <p className="text-white/50 text-sm mt-1">
+                                            {project.category}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+
+            </section>
             {/* Popup Modal */}
             <AnimatePresence>
                 {selectedProject && (
                     <motion.div
-                        className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex justify-center items-center px-4 pt-24 pb-6"
+                        className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex justify-center items-center px-4 py-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        onClick={() => setSelectedProject(null)}
                     >
                         <motion.div
                             initial={{ scale: 0.85, y: 40, opacity: 0 }}
@@ -174,6 +192,7 @@ export default function Projects() {
                             exit={{ scale: 0.85, y: 40, opacity: 0 }}
                             transition={{ duration: 0.35 }}
                             className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-3xl overflow-hidden border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_10px_60px_rgba(0,0,0,0.7)]"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <div className="grid md:grid-cols-2">
                                 {/* Image */}
@@ -277,6 +296,6 @@ export default function Projects() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </section>
+        </>
     );
 }

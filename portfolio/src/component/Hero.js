@@ -11,7 +11,7 @@ const roles = [
     "Future Full-Stack Dev",
 ];
 
-export default function Hero() {
+export default function Hero({ sectionRef }) {
 
     const [text, setText] = useState("");
     const [roleIndex, setRoleIndex] = useState(0);
@@ -45,6 +45,7 @@ export default function Hero() {
 
     return (
         <section
+            ref={sectionRef}
             id="home"
             className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 pt-28 md:pt-32 pb-14 md:pb-20 relative overflow-hidden"
         >
