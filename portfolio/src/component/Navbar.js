@@ -70,11 +70,10 @@ export default function Navbar({ refs }) {
       className="fixed top-0 left-0 w-full z-50 px-3 md:px-10 pt-3 text-xl md:text-2xl font-bold"
     >
       <div
-        className={`max-w-7xl mx-auto rounded-2xl border border-white/10 backdrop-blur-2xl transition-all duration-300 ${
-          scrolled
+        className={`max-w-7xl mx-auto rounded-2xl border border-white/10 backdrop-blur-2xl transition-all duration-300 ${scrolled
             ? "bg-black/70 py-2 px-5 shadow-[0_8px_25px_rgba(0,0,0,0.35)]"
             : "bg-white/5 py-3   px-6"
-        }`}
+          }`}
       >
         <div className="flex items-center justify-between">
 
@@ -99,11 +98,10 @@ export default function Navbar({ refs }) {
                   onClick={() =>
                     scrollToSection(item.ref, item.key)
                   }
-                  className={`relative cursor-pointer px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    active === item.key
+                  className={`relative cursor-pointer px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${active === item.key
                       ? "text-black"
                       : "text-white/65 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {/* Background changes with active section */}
                   {active === item.key && (
@@ -127,7 +125,7 @@ export default function Navbar({ refs }) {
           </ul>
 
           {/* Resume */}
-          <button className="hidden md:block px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold hover:scale-105 transition">
+          <button className="hidden md:block px-5 text-sm py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold hover:scale-105 transition">
             Hire me!
           </button>
 
@@ -157,11 +155,10 @@ export default function Navbar({ refs }) {
                     onClick={() =>
                       scrollToSection(item.ref, item.key)
                     }
-                    className={`text-left px-4 py-3 rounded-2xl transition ${
-                      active === item.key
+                    className={`text-left px-4 py-3 rounded-2xl transition ${active === item.key
                         ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold"
                         : "bg-white/5 text-white/70"
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </button>
