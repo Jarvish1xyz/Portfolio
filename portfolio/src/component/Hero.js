@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
-import image from '../img.png'
+import image from '../image.jpg';
 import resume from '../public/Milan-Resume.pdf'
 
 const roles = [
@@ -17,6 +17,7 @@ export default function Hero({ sectionRef }) {
     const [roleIndex, setRoleIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [deleting, setDeleting] = useState(false);
+    const isMobile = window.innerWidth < 768;
 
     useEffect(() => {
         const currentRole = roles[roleIndex];
@@ -60,6 +61,7 @@ export default function Hero({ sectionRef }) {
                     initial={{ opacity: 0, x: -70 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.9 }}
+                    className="order-2 md:order-1"
                 >
 
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
@@ -132,7 +134,7 @@ export default function Hero({ sectionRef }) {
                     initial={{ opacity: 0, x: 70 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.9 }}
-                    className="flex justify-center"
+                    className="flex justify-center order-1 md:order-2"
                 >
                     <motion.div
                         animate={{ y: [0, -15, 0] }}
@@ -150,17 +152,19 @@ export default function Hero({ sectionRef }) {
                             className="w-full h-60 sm:h-72 object-cover rounded-2xl border border-white/10"
                         />
 
-                        {/* Name */}
-                        <h3 className="text-2xl font-semibold mt-5">Milan</h3>
-                        <p className="text-white/50 mt-1">Creative Developer</p>
+                        {!isMobile && (
+                            <>
+                                <h3 className="text-2xl font-semibold mt-5">Milan</h3>
+                                <p className="text-white/50 mt-1">Creative Developer</p>
 
-                        {/* Terminal Style */}
-                        <div className="mt-6 rounded-2xl bg-black/40 border border-white/10 p-4 text-sm font-mono">
-                            <p className="text-green-400">$ npm run career</p>
-                            <p className="text-white/70 mt-2">✔ Build UI</p>
-                            <p className="text-white/70">✔ Write Clean Code</p>
-                            <p className="text-white/70">✔ Keep Learning</p>
-                        </div>
+                                <div className="mt-6 rounded-2xl bg-black/40 border border-white/10 p-4 text-sm font-mono">
+                                    <p className="text-green-400">$ npm run career</p>
+                                    <p className="text-white/70 mt-2">✔ Build UI</p>
+                                    <p className="text-white/70">✔ Write Clean Code</p>
+                                    <p className="text-white/70">✔ Keep Learning</p>
+                                </div>
+                            </>
+                        )}
 
                     </motion.div>
                 </motion.div>

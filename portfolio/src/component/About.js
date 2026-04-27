@@ -13,7 +13,7 @@ export default function About({ sectionRef }) {
   const stats = [
     {
       icon: <FolderGit2 size={26} />,
-      number: "2+",
+      number: "3+",
       title: "Projects Built",
     },
     {
