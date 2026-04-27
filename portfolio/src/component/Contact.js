@@ -6,6 +6,8 @@ import {
   FaLinkedin,
   FaInstagram,
 } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -42,10 +44,41 @@ export default function Contact() {
     });
   };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const templateParams = {
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    };
+
+    emailjs.send(
+      process.env.REACT_APP_EMAILJS_SERVICE,
+      process.env.REACT_APP_EMAILJS_TEMPLATE,
+      templateParams,
+      process.env.REACT_APP_EMAILJS_KEY
+    )
+      .then((response) => {
+        alert("Message Sent Successfully!");
+        console.log(response);
+
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.log("FAILED...", error);
+        alert("Failed to send message.");
+      });
+  };
+
   return (
     <section
       id="contact"
-      className="min-h-screen bg-[#050505] text-white px-6 md:px-16 py-24 relative overflow-hidden"
+      className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -69,7 +102,7 @@ export default function Contact() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
 
           {/* Left Side */}
           <div className="space-y-6">
@@ -156,14 +189,14 @@ export default function Contact() {
               Send Message
             </h3>
 
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={sendEmail}>
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 outline-none focus:border-blue-400"
+                className="w-full px-5 py-3 md:py-4 rounded-2xl bg-white/5 border border-white/10 outline-none focus:border-blue-400"
               />
 
               <input
@@ -172,7 +205,7 @@ export default function Contact() {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="Your Email"
-                className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 outline-none focus:border-blue-400"
+                className="w-full px-5 py-3 md:py-4 rounded-2xl bg-white/5 border border-white/10 outline-none focus:border-blue-400"
               />
 
               <textarea

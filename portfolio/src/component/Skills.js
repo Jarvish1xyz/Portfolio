@@ -94,7 +94,7 @@ export default function Skills() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <p className="text-blue-400 tracking-[4px] uppercase text-sm mb-3">
+                    <p className="text-blue-400 tracking-[4px] uppercase text-sm md:text-base mb-3">
                         What I Use
                     </p>
 
@@ -112,7 +112,7 @@ export default function Skills() {
                 </motion.div>
 
                 {/* Bento Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-[220px] gap-6">
+                <div className="grid grid-cols-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 auto-rows-[220px] gap-6">
 
                     {/* Big Main Card */}
                     <motion.div
@@ -131,7 +131,7 @@ export default function Skills() {
                                 <h3 className="text-2xl font-semibold">
                                     Full Stack Builder
                                 </h3>
-                                <p className="text-white/50 text-sm">
+                                <p className="text-white/50 text-sm md:text-base">
                                     Frontend + Backend + Growth
                                 </p>
                             </div>
@@ -154,7 +154,7 @@ export default function Skills() {
                                     key={i}
                                     className="rounded-2xl bg-white/5 border border-white/10 p-4"
                                 >
-                                    <p className="text-white/45 text-sm">
+                                    <p className="text-white/45 text-sm md:text-base">
                                         {item[0]}
                                     </p>
                                     <h4 className="text-2xl font-bold text-cyan-300 mt-2">
@@ -194,7 +194,7 @@ export default function Skills() {
                                 {item.tech.map((skill, i) => (
                                     <span
                                         key={i}
-                                        className="px-4 py-2 rounded-full bg-white/10 text-sm text-white/80 hover:bg-white/15 transition"
+                                        className="px-4 py-2 rounded-full bg-white/10 text-sm md:text-base text-white/80 hover:bg-white/15 transition"
                                     >
                                         {skill}
                                     </span>

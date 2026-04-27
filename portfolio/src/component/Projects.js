@@ -71,7 +71,7 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="min-h-screen bg-[#050505] text-white px-6 md:px-16 py-24 relative overflow-hidden"
+            className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
         >
             {/* Background Glow */}
             <div className="absolute top-5 right-110 w-72 h-72 bg-blue-500/20 blur-[150px] rounded-full"></div>
@@ -103,7 +103,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[250px] gap-6">
+                <div className="grid grid-cols-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[220px] md:auto-rows-[250px] gap-6">
                     {/* Featured Big Card */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -111,7 +111,7 @@ export default function Projects() {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                         onClick={() => setSelectedProject(projects[0])}
-                        className="md:col-span-2 md:row-span-2 group cursor-pointer rounded-3xl overflow-hidden relative border border-white/10 bg-white/5 backdrop-blur-xl"
+                        className="sm:col-span-2 md:col-span-2 md:row-span-2 group cursor-pointer rounded-3xl overflow-hidden relative border border-white/10 bg-white/5 backdrop-blur-xl"
                     >
                         <img
                             src={projects[0].image}
@@ -173,7 +173,7 @@ export default function Projects() {
                             animate={{ scale: 1, y: 0, opacity: 1 }}
                             exit={{ scale: 0.85, y: 40, opacity: 0 }}
                             transition={{ duration: 0.35 }}
-                            className="w-full max-w-5xl rounded-3xl overflow-hidden border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_10px_60px_rgba(0,0,0,0.7)]"
+                            className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-3xl overflow-hidden border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_10px_60px_rgba(0,0,0,0.7)]"
                         >
                             <div className="grid md:grid-cols-2">
                                 {/* Image */}
@@ -186,7 +186,7 @@ export default function Projects() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-8 overflow-y-auto max-h-[80vh]">
+                                <div className="p-5 sm:p-6 md:p-8 overflow-y-auto max-h-[80vh]">
                                     <motion.span
                                         initial={{ opacity: 0, y: 15 }}
                                         animate={{ opacity: 1, y: 0 }}

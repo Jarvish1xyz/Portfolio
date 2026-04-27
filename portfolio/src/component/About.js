@@ -43,7 +43,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen bg-[#050505] text-white px-6 md:px-16 py-24 relative overflow-hidden"
+      className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 py-16 md:py-24 relative overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-5 right-110 w-72 h-72 bg-blue-500/20 blur-[150px] rounded-full"></div>
@@ -61,7 +61,7 @@ export default function About() {
             Get To Know Me
           </p>
 
-          <h2 className="text-4xl md:text-6xl font-bold">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">
             About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
               Me
@@ -82,7 +82,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-8 shadow-[0_8px_35px_rgba(0,0,0,0.45)]"
+            className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-5 sm:p-6 md:p-8 shadow-[0_8px_35px_rgba(0,0,0,0.45)]"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-400 flex items-center justify-center text-black">

@@ -67,7 +67,7 @@ export default function Navbar({ refs }) {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.55 }}
-      className="fixed top-0 left-0 w-full z-50 px-4 md:px-10 pt-4"
+      className="fixed top-0 left-0 w-full z-50 px-3 md:px-10 pt-3 text-xl md:text-2xl font-bold"
     >
       <div
         className={`max-w-7xl mx-auto rounded-2xl border border-white/10 backdrop-blur-2xl transition-all duration-300 ${
@@ -134,7 +134,7 @@ export default function Navbar({ refs }) {
           {/* Mobile Menu */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden"
+            className="md:hidden p-2 rounded-xl bg-white/5"
           >
             {open ? <X /> : <Menu />}
           </button>
@@ -149,7 +149,7 @@ export default function Navbar({ refs }) {
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden md:hidden"
             >
-              <div className="pt-5 flex flex-col gap-3">
+              <div className="pt-4 pb-2 flex flex-col gap-2">
 
                 {navLinks.map((item) => (
                   <button

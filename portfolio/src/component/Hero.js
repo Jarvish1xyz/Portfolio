@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import image from '../img.png'
+import resume from '../public/Milan-Resume.pdf'
 
 const roles = [
     "Frontend Developer",
@@ -45,13 +46,13 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="min-h-screen bg-[#050505] text-white px-6 md:px-16 pt-32 pb-20 relative overflow-hidden"
+            className="min-h-screen bg-[#050505] text-white px-4 sm:px-6 md:px-16 pt-28 md:pt-32 pb-14 md:pb-20 relative overflow-hidden"
         >
             {/* Background Glow */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 blur-[120px] rounded-full"></div>
             <div className="absolute bottom-10 right-10 w-72 h-72 bg-cyan-400/10 blur-[120px] rounded-full"></div>
 
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center relative z-10">
 
                 {/* LEFT CONTENT */}
                 <motion.div
@@ -60,7 +61,7 @@ export default function Hero() {
                     transition={{ duration: 0.9 }}
                 >
 
-                    <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
                         Hi, I'm{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
                             Milan
@@ -68,25 +69,30 @@ export default function Hero() {
                     </h1>
 
                     {/* Typing Text */}
-                    <h2 className="text-2xl md:text-4xl mt-5 text-white/80 min-h-[50px]">
+                    <h2 className="text-xl sm:text-2xl md:text-4xl mt-5 text-white/80 min-h-[50px]">
                         {text}
                         <span className="text-blue-400 animate-pulse">|</span>
                     </h2>
 
-                    <p className="mt-6 text-white/60 leading-relaxed max-w-xl">
+                    <p className="text-sm sm:text-base md:text-lg mt-6 text-white/60 leading-relaxed max-w-xl">
                         I build modern, clean and interactive websites with React.js,
                         Tailwind CSS and smooth premium user experiences.
                     </p>
 
                     {/* Buttons */}
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <button className="px-7 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition flex items-center gap-2">
-                            Resume <Download size={18} />
-                        </button>
+                        <a
+                            href={resume}
+                            download={resume}
+                        >
+                            <button className="px-7 cursor-pointer py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition flex items-center gap-2">
+                                Resume <Download size={18} />
+                            </button>
+                        </a>
                     </div>
 
                     {/* Stats */}
-                    <div className="mt-10 grid grid-cols-3 gap-6 max-w-lg">
+                    <div className="mt-10 grid grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
                         <div>
                             <h3 className="text-3xl font-bold text-blue-400">2+</h3>
                             <p className="text-white/50 text-sm mt-1">Projects</p>
@@ -134,13 +140,13 @@ export default function Hero() {
                             duration: 4,
                             ease: "easeInOut",
                         }}
-                        className="w-[360px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.5)] p-6"
+                        className="w-full max-w-[360px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.5)] p-6"
                     >
                         {/* Image */}
                         <img
                             src={image}
                             alt="profile"
-                            className="w-full h-72 object-cover rounded-2xl border border-white/10"
+                            className="w-full h-60 sm:h-72 object-cover rounded-2xl border border-white/10"
                         />
 
                         {/* Name */}

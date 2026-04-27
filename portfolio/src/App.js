@@ -15,17 +15,14 @@ export default function App() {
   const contactRef = useRef(null);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white overflow-hidden relative">
+    <div className="min-h-screen bg-[#050505] text-white relative overflow-x-hidden">
 
       {/* Background Glow Effects */}
-      <div className="absolute top-20 left-5 w-72 h-72 bg-blue-500/40 blur-[90px] rounded-full"></div>
-      <div className="absolute bottom-10 right-5 w-72 h-72 bg-purple-500/40 blur-[90px] rounded-full"></div>
-      <div className="absolute top-180 right-5 w-72 h-72 bg-blue-500/40 blur-[90px] rounded-full"></div>
-      <div className="absolute top-330 left-5 w-72 h-72 bg-purple-500/40 blur-[90px] rounded-full"></div>
-      <div className="absolute top-400 right-5 w-72 h-72 bg-blue-500/40 blur-[90px] rounded-full"></div>
-      <div className="absolute bottom-520 right-5 w-72 h-72 bg-blue-500/40 blur-[90px] rounded-full"></div>
-      <div className="absolute bottom-320 left-5 w-72 h-72 bg-purple-500/40 blur-[90px] rounded-full"></div>
-
+      <div className="absolute top-20 left-0 w-44 md:w-72 h-44 md:h-72 bg-blue-500/30 blur-[80px] rounded-full" />
+      <div className="absolute top-[35%] right-0 w-44 md:w-72 h-44 md:h-72 bg-purple-500/30 blur-[80px] rounded-full" />
+      <div className="absolute bottom-20 left-10 w-44 md:w-72 h-44 md:h-72 bg-cyan-500/30 blur-[80px] rounded-full" />
+      
+      
       {/* Navbar */}
       <Navbar refs={{
         homeRef,
@@ -37,23 +34,23 @@ export default function App() {
 
       {/* Hero Section */}
       <section ref={homeRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Hero/>
+        <Hero />
       </section>
 
       <section ref={aboutRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
         <About />
       </section>
-      
+
       <section ref={projectsRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Projects/>
+        <Projects />
       </section>
-      
+
       <section ref={skillsRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Skills/>
+        <Skills />
       </section>
-      
+
       <section ref={contactRef} className="min-h-screen flex items-center justify-center px-6 md:px-16 relative z-10">
-        <Contact/>
+        <Contact />
       </section>
 
     </div>
