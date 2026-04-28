@@ -97,7 +97,7 @@ export default function Hero({ sectionRef }) {
                     {/* Stats */}
                     <div className="mt-10 grid grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
                         <div>
-                            <h3 className="text-3xl font-bold text-blue-400">2+</h3>
+                            <h3 className="text-3xl font-bold text-blue-400">3+</h3>
                             <p className="text-white/50 text-sm mt-1">Projects</p>
                         </div>
 
