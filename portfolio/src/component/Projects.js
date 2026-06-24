@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import backendmom from "../assets/backend-mom.jpeg";
 import bhagavadgita from "../assets/bhagavad-gita.jpeg";
 import oldportfolio from "../assets/old-portfolio.jpeg";
+import busmanagement from "../assets/bus-management.png"
 
 
 export default function Projects({ sectionRef }) {
@@ -43,6 +44,16 @@ export default function Projects({ sectionRef }) {
 
     const projects = [
         {
+            name: "Bus Management System",
+            image: busmanagement,
+            category: "Full-Stack",
+            desc: "A system for managing bus of universities",
+            tech: ["React.js", "Tailwind CSS", "Express", "MongDB"],
+            live: "https://busofcampus.vercel.app",
+            GitHub: "https://github.com/Jarvish1xyz/Bus-Management",
+            featured: true,
+        },
+        {
             name: "Meeting Management",
             image: backendmom,
             category: "Full-Stack",
@@ -50,7 +61,6 @@ export default function Projects({ sectionRef }) {
             tech: ["React.js", "Tailwind CSS", "Express", "MongDB"],
             live: "https://backend-mom.vercel.app",
             GitHub: "https://github.com/Jarvish1xyz/Backend-MOM",
-            featured: true,
         },
         {
             name: "Bhagavad Gita",
