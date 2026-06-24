@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
-import resume from '../public/Milan-Resume.pdf'
+import resume from '../public/MilanSinha-Resume.pdf'
 
 export default function Navbar({ refs }) {
   const [open, setOpen] = useState(false);
