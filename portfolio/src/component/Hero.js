@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import image from '../assets/image.jpg';
-import resume from '../public/Milan-Resume.pdf'
+import resume from '../public/MilanSinha-Resume.pdf'
 
 const roles = [
     "Frontend Developer",
