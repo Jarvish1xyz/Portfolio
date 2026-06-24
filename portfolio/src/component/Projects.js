@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import backendmom from "../assets/backend-mom.jpeg";
 import bhagavadgita from "../assets/bhagavad-gita.jpeg";
 import oldportfolio from "../assets/old-portfolio.jpeg";
-import busmanagement from "../assets/bus-management.png"
+import busmanagement from "../assets/bus-managment.jpeg";
 
 
 export default function Projects({ sectionRef }) {
